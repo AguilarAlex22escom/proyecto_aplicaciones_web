@@ -7,12 +7,11 @@
     <title>.::Sistema de registro al examen del admisión IPN 2023::.</title>
 </head>
 <body>
-    <script type="text/javascript" src="../src/script.js"></script>
     <form id="id_registro" name="registro" method="get" action="datosEnviados.html">
         <fieldset>
             <legend><strong>Procedencia</strong></legend>
             <label for="escuelaDeProcedencia">Escuela de procedencia: </label> <!-- Recuerda que label se enlaza con el id de la parte del formulario a llenar que la contenga. -->
-            <select id="escuelaDeProcedencia" name="escuela_procedencia"> 
+            <select id="escuelaDeProcedencia" name="escuela_procedencia" onchange="seleccionarEscuela()"> 
                 <option value="" disabled selected>Seleccione una opción</option>
                 <option value="cecyt1">CECyT 1 “González Vázquez Vega”</option>
                 <option value="cecyt2">CECyT 2 "Miguel Bernard"</option>
@@ -37,7 +36,9 @@
                 <option value="Otra">Otra</option>
             </select>
             <br>
+            <span id="opcionSeleccionada"></span>
         </fieldset>
     </form>
+    <script type="text/javascript" src="../src/script.js"></script>
 </body>
 </html>

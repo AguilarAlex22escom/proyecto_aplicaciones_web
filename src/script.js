@@ -1,13 +1,7 @@
-// Función para el apartado 'escuela de procedencia'.
-let escuelas = document.getElementById('escuelaDeProcedencia')
+seleccionarEscuela = () => {
+    let escuelaDeProcedencia = document.getElementById('escuelaDeProcedencia')
+    let escuelaSeleccionada = escuelaDeProcedencia.value;
 
-// Accedemos a las escuelas de procedencia para utilizarlas.
-/* escuelaDeProcedencia.addEventListener('change', (event) => {
-        let opcionSeleccionada = this.options[escuelaDeProcedencia.selectedIndex]
-        console.log(opcionSeleccionada.value + ': ' + opcionSeleccionada.text)
-}); */
+document.getElementById('opcionSeleccionada').innerText = `Opcion seleccionada: ${escuelaSeleccionada}.`
 
-/* let ingresarOtraEscuela = () => {
-    let valorSeleccionado = escuelas.options[escuelas.selectedIndex].text;
-    alert(valorSeleccionado)
-} */
+}
