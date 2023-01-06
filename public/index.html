@@ -7,9 +7,16 @@
     <title>.::Sistema de registro al examen del admisión IPN 2023::.</title>
 </head>
 <body>
-    <form id="id_registro" name="registro" method="get" action="datosEnviados.html">
+    <form id="id_registro" name="registro" method="get" action="../src/datosTemporales.php">
+        <fieldset>
+            <legend><strong>Contacto</strong></legend>
+            <label for="codigoPostal">Código postal:</label>
+            <input type="text" id="codigoPostal" name="codigo_postal" minlength="5" maxlength="5" onchange="validarCodigoPostal()"><br>
+            <span id="codigoPostalEnIngreso"></span><br>
+        </fieldset>
         <fieldset>
             <legend><strong>Procedencia</strong></legend>
+            <!-- Parte para escuela de procedencia -->
             <label for="escuelaDeProcedencia">Escuela de procedencia: </label> <!-- Recuerda que label se enlaza con el id de la parte del formulario a llenar que la contenga. -->
             <select id="escuelaDeProcedencia" name="escuela_procedencia" onchange="seleccionarEscuela()"> 
                 <option value="" disabled selected>Seleccione una opción</option>
@@ -33,12 +40,77 @@
                 <option value="cecyt18">CECYT 18 "ZACATECAS</option>
                 <option value="cecyt19">CECyT 19 "Leona Vicario"</option>
                 <option value="cecyt20">CET 1 "Walter Cross Buchanan"</option>
-                <option value="Otra">Otra</option>
-            </select>
-            <br>
-            <span id="opcionSeleccionada"></span>
+                <option value="otra">Otra</option>
+            </select><br>
+            <span id="opcionSeleccionada"></span><br>
+            <!-- Parte para entidad federativa -->
+            <label for="entidadFederativa">Entidad Federativa de Procedencia: </label>
+            <select id="entidadFederativa" name="entidad_federativa" required> 
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option>CDMX</option>
+                <option>Aguascalientes</option>
+                <option>Baja California</option>
+                <option>Baja California Sur</option>
+                <option>Campeche</option>
+                <option>Chiapas</option>
+                <option>Chihuahua</option>
+                <option>Coahuila</option>
+                <option>Colima</option>
+                <option>Durango</option>
+                <option>Guanajuato</option>
+                <option>Guerrero</option>
+                <option>Hidalgo</option>
+                <option>Jalisco</option>
+                <option>México</option>
+                <option>Michoacán</option>
+                <option>Morelos</option>
+                <option>Nayarit</option>
+                <option>Nuevo León</option>
+                <option>Oaxaca</option>
+                <option>Puebla</option>
+                <option>Querétaro</option>
+                <option>Quintana Roo</option>
+                <option>San Luis Potosí</option>
+                <option>Sinaloa</option>
+                <option>Sonora</option>
+                <option>Tabasco</option>
+                <option>Tamaulipas</option>
+                <option>Tlaxcala</option>
+                <option>Veracruz</option>
+                <option>Yucatán</option>
+                <option>Zacatecas</option>
+            </select><br><br>
+            <!-- <span id="opcionSeleccionada"></span><br> -->
+            <!-- Parte para promedio -->
+            <label for="promedio">Promedio (En decimales): </label>
+            <input type="number" name="promedio" id="promedio" placeholder="Promedio obtenido anteriormente" step="0.01" min="6" max="10" required><br><br>
+            <!-- Parte para checkbox sobre qué opción fue ESCOM -->
+            <label for="numeroDeOpcion">ESCOM fue tu:</label><br>
+            <input type="checkbox" name="numeroDeOpcion1" id="opcion1" value="1">
+            <label for="opcion1">1ra Opción</label>
+            <input type="checkbox" name="numeroDeOpcion2" id="opcion2" value="2">
+            <label for="opcion2">2da Opción</label>
+            <input type="checkbox" name="numeroDeOpcion3" id="opcion3" value="3">
+            <label for="opcion3">3ra Opción</label>
+            <input type="checkbox" name="numeroDeOpcion4" id="opcion4" value="4">
+            <label for="opcion4">4ta Opción</label>
+            <br><br>
         </fieldset>
+        <!-- Apartado especial para indicar si existe discapacidad -->
+        <fieldset>
+            <legend><strong>Otros datos</strong></legend>
+            <label for="discapacidad">¿Posee alguna discapacidad?</label>
+            <input type="radio" name="discapacidad" id="conDiscapacidad" onchange="seleccionarDiscapacidad()" >
+            <label for="conDiscapacidad">Sí</label>
+            <input type="radio" name="discapacidad" id="sinDiscapacidad" onchange="seleccionarDiscapacidad()">
+            <label for="sinDiscapacidad">No</label>
+            <br><span id="siSeleccionado"></span>
+        </fieldset>
+        <!-- Botones para envío y borrado de datos -->
+        <input type="submit" value="Registrar">
+        <input type="reset" value="Limpiar">
     </form>
     <script type="text/javascript" src="../src/script.js"></script>
+    <!-- <script type="text/javascript" src="../src/envioDatos.js"></script> -->
 </body>
 </html>
