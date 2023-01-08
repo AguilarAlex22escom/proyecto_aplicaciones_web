@@ -7,13 +7,19 @@
     <title>.::Sistema de registro al examen del admisión IPN 2023::.</title>
 </head>
 <body>
-    <form id="id_registro" name="registro" method="get" action="../src/datosTemporales.php">
+    <form id="id_registro" name="registro" method="post" action="../src/datosTemporales.php">
         <fieldset>
             <legend><strong>Contacto</strong></legend>
             <label for="codigoPostal">Código postal:</label>
-            <input type="text" id="codigoPostal" name="codigo_postal" minlength="5" maxlength="5" onchange="validarCodigoPostal()"><br>
-            <span id="codigoPostalEnIngreso"></span><br>
-        </fieldset>
+            <input type="text" id="codigoPostal" name="codigo_postal" minlength="5" maxlength="5" onchange="validarCodigoPostal()" required><br/>
+            <span id="codigoPostalEnIngreso"></span><br/>
+            <label for="numeroCelular">Número celular:</label>
+            <input type="tel" id="numeroCelular" name="numero_celular" minlength="10" maxlength="10" onchange="validarNumeroCelular()" required><br/>
+            <span id="numeroCelularEnIngreso"></span><br/>
+            <label for="correoElectronico">Correo electrónico:</label>
+            <input type="email" id="correoElectronico" name="correo_electronico" onchange="validarCorreoElectronico()" required><br/>
+            <span id="correoElectronicoEnIngreso"></span><br/>
+            </fieldset>
         <fieldset>
             <legend><strong>Procedencia</strong></legend>
             <!-- Parte para escuela de procedencia -->
@@ -37,12 +43,12 @@
                 <option value="cecyt15">CECyT 15 "Diódoro Antúnez Echegaray"</option>
                 <option value="cecyt16">CECYT 16 "Hidalgo"</option>
                 <option value="cecyt17">CECYT 17 "LEON, GUANAJUATO"</option>
-                <option value="cecyt18">CECYT 18 "ZACATECAS</option>
+                <option value="cecyt18">CECYT 18 "ZACATECAS"</option>
                 <option value="cecyt19">CECyT 19 "Leona Vicario"</option>
-                <option value="cecyt20">CET 1 "Walter Cross Buchanan"</option>
+                <option value="cet1">CET 1 "Walter Cross Buchanan"</option>
                 <option value="otra">Otra</option>
-            </select><br>
-            <span id="opcionSeleccionada"></span><br>
+            </select><br/>
+            <span id="opcionSeleccionada"></span><br/>
             <!-- Parte para entidad federativa -->
             <label for="entidadFederativa">Entidad Federativa de Procedencia: </label>
             <select id="entidadFederativa" name="entidad_federativa" required> 
@@ -86,23 +92,23 @@
             <input type="number" name="promedio" id="promedio" placeholder="Promedio obtenido anteriormente" step="0.01" min="6" max="10" required><br><br>
             <!-- Parte para checkbox sobre qué opción fue ESCOM -->
             <label for="numeroDeOpcion">ESCOM fue tu:</label><br>
-            <input type="checkbox" name="numeroDeOpcion1" id="opcion1" value="1">
+            <input type="radio" name="numero_de_opcion" id="opcion1" value="1">
             <label for="opcion1">1ra Opción</label>
-            <input type="checkbox" name="numeroDeOpcion2" id="opcion2" value="2">
+            <input type="radio" name="numero_de_opcion" id="opcion2" value="2">
             <label for="opcion2">2da Opción</label>
-            <input type="checkbox" name="numeroDeOpcion3" id="opcion3" value="3">
+            <input type="radio" name="numero_de_opcion" id="opcion3" value="3">
             <label for="opcion3">3ra Opción</label>
-            <input type="checkbox" name="numeroDeOpcion4" id="opcion4" value="4">
+            <input type="radio" name="numero_de_opcion" id="opcion4" value="4">
             <label for="opcion4">4ta Opción</label>
-            <br><br>
+            <br><br/>
         </fieldset>
         <!-- Apartado especial para indicar si existe discapacidad -->
         <fieldset>
             <legend><strong>Otros datos</strong></legend>
             <label for="discapacidad">¿Posee alguna discapacidad?</label>
-            <input type="radio" name="discapacidad" id="conDiscapacidad" onchange="seleccionarDiscapacidad()" >
+            <input type="radio" name="discapacidad" id="conDiscapacidad" value="con_discapacidad" onchange="seleccionarDiscapacidad()" >
             <label for="conDiscapacidad">Sí</label>
-            <input type="radio" name="discapacidad" id="sinDiscapacidad" onchange="seleccionarDiscapacidad()">
+            <input type="radio" name="discapacidad" id="sinDiscapacidad" value="sin_discapacidad" onchange="seleccionarDiscapacidad()">
             <label for="sinDiscapacidad">No</label>
             <br><span id="siSeleccionado"></span>
         </fieldset>

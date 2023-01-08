@@ -8,6 +8,8 @@
 // Patrones
 const patronCodigoPostal = /[0-9][1-9][0-9]{3}/
 const patronPromedio = /[0-9]\.[0-9][0-9]/
+const patronNumeroCelular = /[2-9][0-9]{9}/
+const patronCorreoElectronico = /[^0-9]|^\..+{,64}@((gmail|outlook|yahoo|gmx|aol).com(.mx)?)|alumno.ipn.mx/
 
 // Funciones
 seleccionarEscuela = () => {
@@ -17,7 +19,7 @@ seleccionarEscuela = () => {
     if(escuelaSeleccionada == 'otra') { // En caso de que el estudiante seleccione 'otra' en la escuela de procedencia.
         document.getElementById('opcionSeleccionada').innerHTML = `
             <br><label for="escuelaSeleccionada">Escuela de procedencia: </label>
-            <input id="otraEscuela" type="text" placeholder="Escuela de procedencia" required /><br>`;
+            <input type="text" id="otraEscuela" name="otra_escuela" placeholder="Escuela de procedencia" required /><br>`;
     }
     else {
         document.getElementById('opcionSeleccionada').innerText = ``;
@@ -48,7 +50,6 @@ seleccionarDiscapacidad = () => {
 
 validarCodigoPostal = () => {
     let codigoPostalIngresado = document.getElementById('codigoPostal').value;
-    // let lectorCodigoPostal = codigoPostalIngresado.match(patronCodigoPostal)
     let validacionCodigoPostal = patronCodigoPostal.test(codigoPostalIngresado)
 
     if(validacionCodigoPostal == false) {
@@ -56,5 +57,29 @@ validarCodigoPostal = () => {
     }
     else if(validacionCodigoPostal == true) {
         document.getElementById('codigoPostalEnIngreso').innerHTML = ``;
+    }
+}
+
+validarNumeroCelular = () => {
+    let numeroCelularIngresado = document.getElementById('numeroCelular').value;
+    let validacionNumeroCelular = numeroCelularIngresado.match(patronNumeroCelular)
+
+    if(!validacionNumeroCelular) {
+        document.getElementById('numeroCelularEnIngreso').innerHTML = `<p>Ingresa un número celular valido. </p>`;   
+    }
+    else {
+        document.getElementById('numeroCelularEnIngreso').innerHTML = ``;
+    }
+}
+
+validarCorreoElectronico = () => {
+    let correoElectronicoIngresado = document.getElementById('correoElectronico').value;
+    let validacionCorreoElectronico = patronCorreoElectronico.test(correoElectronicoIngresado)
+
+    if(validacionCorreoElectronico == false) {
+        document.getElementById('correoElectronicoEnIngreso').innerHTML = `<p>Ingresa un correo electrónico válido. </p>`;   
+    }
+    else if(validacionCorreoElectronico == true) {
+        document.getElementById('correoElectronicoEnIngreso').innerHTML = ``;
     }
 }
