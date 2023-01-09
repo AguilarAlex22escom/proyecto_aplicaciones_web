@@ -15,14 +15,14 @@ CREATE TABLE alumno (
   promedio decimal(4,2) NOT NULL,
   numeroDeOpcion varchar(15) NOT NULL,
   discapacidad varchar(13) NOT NULL,
-  horarioCorrespondiente date NOT NULL,
-  laboratorioCorrespondiente numeric(1) NOT NULL,
+  /* horarioCorrespondiente date NOT NULL,
+  laboratorioCorrespondiente numeric(1) NOT NULL, */
   /* boleta varchar(10) NOT NULL,
   nombres varchar(64) NOT NULL,
   primerApellido varchar(64) NOT NULL,
   segundoApellido varchar(64) DEFAULT NULL, */
   PRIMARY KEY (correoElectronico)
-) /* ENGINE=InnoDB DEFAULT CHARSET=utf8 */;
+); /* ENGINE=InnoDB DEFAULT CHARSET=utf8; */
 
 /*Data for the table 'alumno' */
 

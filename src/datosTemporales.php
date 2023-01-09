@@ -1,4 +1,6 @@
 <?php
+    // Importaciones
+    include("conexion.php");
     // Variables auxiliares
     $escuela_ingresada;
     $discapacidad_seleccionada;
@@ -110,9 +112,7 @@
             <p>Si existe uno o más datos que ingresaste incorrectamente, da click en <strong>Modificar</strong> para volver al paso anterior y corregir los datos.<p>";
     echo "<input type='submit' name='Enviar'>
             <button name='regresar'><a href='/'>Modificar</a></button>";
-    // Conexión a base de datos y enví de registro realizado
-    $conexion = mysqli_connect("localhost", "root", "", "proyecto_web");
-    $ingreso_datos_sql = "INSERT INTO * alumno VALUES (
-        '$codigo_postal_ingresado', '$numero_celular_ingresado')";
-        
+    // Conexión a base de datos y envío de registro realizado
+   
+
 ?>
